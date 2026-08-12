@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adhiparasakthi Engineering College - Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(
+                135deg,
+                #8b0000,
+                #c62828,
+                #f2b705
+            );
+        }
+
+        .login-container {
+            width: 400px;
+            background: #ffffff;
+            padding: 35px 40px;
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.3);
+
+            text-align: center;
+        }
+
+        /* College Logo */
+        .logo {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .college-name {
+            color: #8b0000;
+            font-size: 21px;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+
+        .college-subtitle {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #444;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .input-box {
+            width: 100%;
+            padding: 13px 14px;
+
+            border: 1px solid #ccc;
+            border-radius: 7px;
+
+            outline: none;
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        .input-box:focus {
+            border-color: #8b0000;
+            box-shadow: 0 0 5px rgba(139, 0, 0, 0.25);
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .password-container input {
+            padding-right: 70px;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            border: none;
+            background: none;
+
+            color: #8b0000;
+            font-size: 12px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .forgot {
+            display: block;
+            text-align: right;
+
+            color: #8b0000;
+            text-decoration: none;
+
+            font-size: 13px;
+            margin-top: -5px;
+            margin-bottom: 20px;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 13px;
+
+            border: none;
+            border-radius: 7px;
+
+            background: #8b0000;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #b30000;
+            transform: translateY(-1px);
+        }
+
+        .message {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .footer {
+            margin-top: 25px;
+            padding-top: 15px;
+
+            border-top: 1px solid #eee;
+
+            color: #777;
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 30px 25px;
+            }
+
+            .college-name {
+                font-size: 18px;
+            }
+
+            .logo {
+                width: 110px;
+                height: 110px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <!-- YOUR COLLEGE LOGO -->
+        <img
+            src="e53d0738-d5d8-4ede-9263-b1390a6866be.png"
+            alt="Adhiparasakthi Engineering College Logo"
+            class="logo"
+        >
+
+        <!-- College Name -->
+        <div class="college-name">
+            Adhiparasakthi Engineering College
+        </div>
+
+        <div class="college-subtitle">
+            Melmaruvathur
+        </div>
+
+        <h2>Student Login</h2>
+
+        <form onsubmit="login(event)">
+
+            <!-- Username -->
+            <div class="input-group">
+                <label for="username">Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    class="input-box"
+                    placeholder="Enter your username"
+                    required
+                >
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+                <label for="password">Password</label>
+
+                <div class="password-container">
+
+                    <input
+                        type="password"
+                        id="password"
+                        class="input-box"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        onclick="showPassword()"
+                    >
+                        SHOW
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Forgot Password -->
+            <a href="#" class="forgot">
+                Forgot Password?
+            </a>
+
+            <!-- Login Button -->
+            <button type="submit" class="login-btn">
+                LOGIN
+            </button>
+
+            <!-- Message -->
+            <div id="message" class="message"></div>
+
+        </form>
+
+        <div class="footer">
+            © 2026 Adhiparasakthi Engineering College
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* Show / Hide Password */
+        function showPassword() {
+
+            const password =
+                document.getElementById("password");
+
+            const button =
+                document.querySelector(".show-password");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+                button.innerHTML = "HIDE";
+
+            } else {
+
+                password.type = "password";
+                button.innerHTML = "SHOW";
+            }
+        }
+
+
+        /* Login */
+        function login(event) {
+
+            event.preventDefault();
+
+            const username =
+                document.getElementById("username").value;
+
+            const password =
+                document.getElementById("password").value;
+
+            const message =
+                document.getElementById("message");
+
+
+            /*
+             * Demo login
+             *
+             * Username: student
+             * Password: 12345
+             */
+
+            if (username === "student" && password === "12345") {
+
+                message.style.display = "block";
+                message.style.background = "#d4edda";
+                message.style.color = "#155724";
+
+                message.innerHTML =
+                    "Login successful!";
+
+            } else {
+
+                message.style.display = "block";
+                message.style.background = "#f8d7da";
+                message.style.color = "#721c24";
+
+                message.innerHTML =
+                    "Invalid username or password.";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
